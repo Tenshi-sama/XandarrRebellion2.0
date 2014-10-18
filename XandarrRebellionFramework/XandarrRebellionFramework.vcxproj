@@ -92,8 +92,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\GameDev\_Projects\WorkingTitle\XandarrRebellion2.0\XandarrRebellionFramework\_sdl\SDL2-2.0.3\include;C:\GameDev\_Projects\WorkingTitle\XandarrRebellion2.0\XandarrRebellionFramework\_sdl\SDL2_ttf-2.0.12\include;C:\GameDev\_Projects\WorkingTitle\XandarrRebellion2.0\XandarrRebellionFramework\_sdl\SDL2_image-2.0.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GameDev\_Projects\WorkingTitle\XandarrRebellion2.0\XandarrRebellionFramework\_sdl\SDL2-2.0.3\lib\x86;C:\GameDev\_Projects\WorkingTitle\XandarrRebellion2.0\XandarrRebellionFramework\_sdl\SDL2_ttf-2.0.12\lib\x86;C:\GameDev\_Projects\WorkingTitle\XandarrRebellion2.0\XandarrRebellionFramework\_sdl\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\XandarrRebellionFramework\_sdl\SDL2-2.0.3\include;$(SolutionDir)\XandarrRebellionFramework\_sdl\SDL2_ttf-2.0.12\include;$(SolutionDir)\XandarrRebellionFramework\_sdl\SDL2_image-2.0.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\XandarrRebellionFramework\_sdl\SDL2-2.0.3\lib\x86;$(SolutionDir)\XandarrRebellionFramework\_sdl\SDL2_ttf-2.0.12\lib\x86;$(SolutionDir)\XandarrRebellionFramework\_sdl\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

@@ -20,24 +20,11 @@ private:
 	const string SPRITE_LOCATION;
 
 	Texture invBox_;
-
-	const string SPRITE_PIC1;
-	//const string SPRITE_PIC2;
-	//const string SPRITE_PIC3;
-	//const string SPRITE_PIC4;
-	//const string SPRITE_PIC5;
-	//const string SPRITE_PIC6;
-
-	Texture itemPic1_;
-	Texture itemPic2_;
-	Texture itemPic3_;
-	Texture itemPic4_;
-	Texture itemPic5_;
-	Texture itemPic6_;
+	
 	int textXPos, textYPos;
 
 public:
-	Inventory() : capacity_(100), current_weight_(0), SPRITE_LOCATION("_resources\\blank.png"), SPRITE_PIC1("_resources\\potion3.png") {};
+	Inventory() : capacity_(100), current_weight_(0), SPRITE_LOCATION("_resources\\blank.png") {};
 	~Inventory() {};
 
 	void Init(SDL_Renderer* r);
@@ -45,7 +32,7 @@ public:
 	void Update(WindowManager* w);
 	void Render(WindowManager* w);
 
-	void addItem(Item newItem);
+	void addItem(Item* newItem);
 	void removeItem(string);
 	bool isFull() const;
 

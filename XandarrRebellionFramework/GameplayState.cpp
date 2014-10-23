@@ -25,6 +25,9 @@ void GameplayState::Init(WindowManager* w) {
 	item1_.heal(10);
 	item2_.heal(10);
 	item2_.setVisible(false);
+
+	item2_.setXPos(enemy_.getXPos());
+	item2_.setYPos(enemy_.getYPos());
 	
 	state_life_timer_.Start();
 }
@@ -45,6 +48,9 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 			//cout << "|--> Mouse Click(" << event->button.x << ", " << event->button.y << ") | Current State: GameplayState" << endl;
 
 			if (collide(&player_, &enemy_) && !enemy_.getIsDead()) {
+				item2_.setXPos(enemy_.getXPos());
+				item2_.setYPos(enemy_.getYPos());
+
 				cout << player_.getHitPercent() << endl;
 				if (!player_.getIsDead() && player_.getHitPercent() >= 50 && !enemy_.getIsDead()) {
 					enemy_.setHealth(enemy_.getHealth() - player_.getAtk());
@@ -100,23 +106,23 @@ void GameplayState::Update(WindowManager* w) {
 	printLevel_.Update(w);
 	inventory_.Update(w);
 
-	item2_.setXPos(enemy_.getXPos());
-	item2_.setYPos(enemy_.getYPos());
-
-	if (collide(&player_, &enemy_)) {
+	if (!enemy_.getIsDead() && collide(&player_, &enemy_)) {
 		/*
 		switch (w->getEvent()->type) {
 		case SDL_MOUSEBUTTONDOWN:
-		if (w->getEvent()->button.button == SDL_BUTTON_LEFT) {
-		while (player_.getBaseHealth() > 0 && enemy_.getHealth() > 0){
-		enemy_.setHealth(enemy_.getHealth() - player_.getBaseAttack());
-		cout << "Enemy Health = " << enemy_.getHealth() << endl;
-		}
-		}
+			if (w->getEvent()->button.button == SDL_BUTTON_LEFT) {
+				while (player_.getBaseHealth() > 0 && enemy_.getHealth() > 0){
+					enemy_.setHealth(enemy_.getHealth() - player_.getBaseAttack());
+					cout << "Enemy Health = " << enemy_.getHealth() << endl;
+				}
+			}
 		}
 		*/
 		//enemy_.Moving(false);
 		//enemy_.Attack();
+
+		item2_.setXPos(enemy_.getXPos());
+		item2_.setYPos(enemy_.getYPos());
 
 		if (player_.getIsDead()) {
 			player_.notVisible();
@@ -145,13 +151,13 @@ void GameplayState::Update(WindowManager* w) {
 
 	if (item1_.getVisible() && collide(&player_, &item1_)) {
 		cout << "item1_ added to inventory\n";
-		inventory_.addItem(item1_);
+		inventory_.addItem(&item1_);
 		item1_.setVisible(false);
 	}
 
 	if (item2_.getVisible() && collide(&player_, &item2_)) {
 		cout << "item2_ added to inventory\n";
-		inventory_.addItem(item2_);
+		inventory_.addItem(&item2_);
 		item2_.setVisible(false);
 	}
 

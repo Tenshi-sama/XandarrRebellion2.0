@@ -49,7 +49,7 @@ public:
 	
 	inline bool isFull() const { return (max_stack_size_ - stack_size_ == 0); }
 	inline bool isStackable() const { return (max_stack_size_ > 1); }
-	inline const string& name() const { return name_; }
+	inline string& name() { return name_; }
 	inline unsigned int worth() const { return worth_; }
 	inline unsigned short weight() const { return weight_; }
 	inline unsigned short stackSize() const { return stack_size_; }

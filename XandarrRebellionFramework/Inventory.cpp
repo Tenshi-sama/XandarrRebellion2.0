@@ -7,50 +7,35 @@ void Inventory::Init(SDL_Renderer* r) {
 	invBox_.y(460);
 	invBox_.scaleX(2.7);
 
-	itemPic1_.LoadTexture(r, SPRITE_PIC1);
-	itemPic1_.x(10);
-	itemPic1_.y(465);
-
-	itemPic2_.LoadTexture(r, SPRITE_PIC1);
-	itemPic2_.x(10);
-	itemPic2_.y(500);
-
-	itemPic3_.LoadTexture(r, SPRITE_PIC1);
-	itemPic3_.x(70);
-	itemPic3_.y(465);
-
-	itemPic4_.LoadTexture(r, SPRITE_PIC1);
-	itemPic4_.x(70);
-	itemPic4_.y(500);
-
-	itemPic5_.LoadTexture(r, SPRITE_PIC1);
-	itemPic5_.x(130);
-	itemPic5_.y(465);
-
-	itemPic6_.LoadTexture(r, SPRITE_PIC1);
-	itemPic6_.x(130);
-	itemPic6_.y(500);
-
-	itemPic1_.visible(false);
-	itemPic2_.visible(false);
-	itemPic3_.visible(false);
-	itemPic4_.visible(false);
-	itemPic5_.visible(false);
-	itemPic6_.visible(false);
-
 	invBox_.visible(false);
 }
 
 void Inventory::HandleEvents(SDL_Event* event, Player* player_) {
 	//check if mouse is within the item in the enventory AND clicked (the event passed is mouse click)
+
+	vector<Item *>::iterator invIter = inventory_space_.begin();
+
+	for (; invIter != inventory_space_.end(); invIter++) {
+		if ((*invIter)->getVisible() && (event->motion.x >= (*invIter)->getXPos() && event->motion.x <= ((*invIter)->getXPos() + (*invIter)->getWidth())) && (event->motion.y >= (*invIter)->getYPos() && event->motion.y <= ((*invIter)->getYPos() + (*invIter)->getHeight()))) {
+			cout << "Player is healed " << (*invIter)->heal() << " health!\n";
+
+			player_->setCurrentHealth(player_->getCurrentHealth() + (*invIter)->heal());
+			(*invIter)->setVisible(false);
+			removeItem((*invIter)->name());
+		}
+	}
+
+	/*
 	if ((itemPic1_.visible()) && (event->motion.x >= itemPic1_.x() && event->motion.x <= (itemPic1_.x() + itemPic1_.width())) && (event->motion.y >= itemPic1_.y() && event->motion.y <= (itemPic1_.y() + itemPic1_.height()))) {
 		//when clicked, the player uses potion1
 
 		//////////////////////////////
 		// PROBLEM!!!!!
 		// Object properties are NOT passed when adding object to inventory! D:
-		// This means that the heal() function for a potion does NOT have a value!
+		// This means that the heal() and name() functions for a potion do NOT have values!
 		//////////////////////////////
+
+		cout << inventory_space_.at(0)->heal() << endl;
 
 		//player_->setCurrentHealth(player_->getCurrentHealth() + inventory_space_.at(0)->heal());
 		//removeItem(inventory_space_.at(0)->name());
@@ -66,6 +51,7 @@ void Inventory::HandleEvents(SDL_Event* event, Player* player_) {
 	} else if ((itemPic6_.visible()) && (event->motion.x >= itemPic6_.x() && event->motion.x <= (itemPic6_.x() + itemPic6_.width())) && (event->motion.y >= itemPic6_.y() && event->motion.y <= (itemPic6_.y() + itemPic6_.height()))) {
 		//when clicked, the player uses potion6
 	}
+	*/
 
 }
 
@@ -75,25 +61,18 @@ void Inventory::Update(WindowManager* w) {
 
 void Inventory::Render(WindowManager* w) {
 	invBox_.Draw(w->getRenderer());
-
-	itemPic1_.Draw(w->getRenderer());
-	itemPic2_.Draw(w->getRenderer());
-	itemPic3_.Draw(w->getRenderer());
-	itemPic4_.Draw(w->getRenderer());
-	itemPic5_.Draw(w->getRenderer());
-	itemPic6_.Draw(w->getRenderer());
 }
 
-void Inventory::addItem(Item newItem) {
-	current_weight_ += newItem.weight();
+void Inventory::addItem(Item* newItem) {
+	current_weight_ += newItem->weight();
 
 	bool uniqueItem = true;
 
 	vector<Item *>::iterator invIter = inventory_space_.begin();
 
-	if (newItem.isStackable() == true && !inventory_space_.empty()) {
+	if (newItem->isStackable() == true && !inventory_space_.empty()) {
 		for (; invIter != inventory_space_.end(); invIter++) {
-			if (newItem.name() == (*invIter)->name() && !(*invIter)->isFull()) {
+			if (newItem->name() == (*invIter)->name() && !(*invIter)->isFull()) {
 				(*invIter)->stackSize((*invIter)->stackSize() + 1);
 				uniqueItem = false;
 				break;
@@ -101,8 +80,8 @@ void Inventory::addItem(Item newItem) {
 		}
 	}
 
-	if (uniqueItem == true || newItem.isStackable() == false) {
-		inventory_space_.push_back(&newItem);
+	if (uniqueItem == true || newItem->isStackable() == false) {
+		inventory_space_.push_back(newItem);
 	}
 }
 
@@ -148,7 +127,15 @@ void Inventory::removeItem(string itemName) {
 
 void Inventory::printInventory(WindowManager* w) {
 	vector<Item *>::iterator invIter = inventory_space_.begin();
-	unsigned short runs = 0;
+
+	unsigned short invItemX = invBox_.x() + 10;
+	unsigned short invItemY = invBox_.y() + 20;
+
+	if (invBox_.visible()) {
+		invBox_.visible(false);
+	} else {
+		invBox_.visible(true);
+	}
 
 		for (; invIter != inventory_space_.end(); invIter++) {
 			/*
@@ -159,33 +146,16 @@ void Inventory::printInventory(WindowManager* w) {
 			}
 			*/
 
-			if (runs == 0) {
-				itemPic1_.visible(true);
-			} else if (runs == 1) {
-				itemPic2_.visible(true);
-			} else if (runs == 2) {
-				itemPic3_.visible(true);
-			} else if (runs == 3) {
-				itemPic4_.visible(true);
-			} else if (runs == 4) {
-				itemPic5_.visible(true);
-			} else if (runs == 5) {
-				itemPic6_.visible(true);
-			}
-			
-			runs++;
-		}
+			(*invIter)->setXPos(invItemX);
+			(*invIter)->setYPos(invItemY);
 
-		if (invBox_.visible()) {
-			invBox_.visible(false);
-			itemPic1_.visible(false);
-			itemPic2_.visible(false);
-			itemPic3_.visible(false);
-			itemPic4_.visible(false);
-			itemPic5_.visible(false);
-			itemPic6_.visible(false);
-		} else {
-			invBox_.visible(true);
+			if (invBox_.visible()) {
+				(*invIter)->setVisible(true);
+			} else {
+				(*invIter)->setVisible(false);
+			}
+
+			invItemX += 60;
 		}
 }
 

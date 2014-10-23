@@ -34,6 +34,7 @@ public:
 
 	void addItem(Item* newItem);
 	void removeItem(string);
+	void removeItem(vector<Item *>::iterator);
 	bool isFull() const;
 
 	inline unsigned short getCurrentWeight() const { return current_weight_; }
@@ -43,7 +44,7 @@ public:
 	inline void Inventory::setCapacity(const unsigned short newValue) { capacity_ = newValue; }
 	inline void Inventory::setCurrentWeight(const unsigned short newValue) { current_weight_ = newValue; }
 
-	void printInventory(WindowManager* w);
+	void printInventory();
 	void clearInventory();
 };
 

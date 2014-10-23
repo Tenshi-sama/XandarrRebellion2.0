@@ -10,7 +10,7 @@ void TextWindow::Init(SDL_Renderer* r) {
 	textBox_.alpha(150);
 	textBox_.x(0);
 	textBox_.y(0);
-	textBox_.scaleX(2.7);
+	textBox_.scaleX((const float)2.7);
 
 	//text_.x(320);
 	//text_.y(20);

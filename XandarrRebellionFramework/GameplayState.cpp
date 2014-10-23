@@ -50,8 +50,7 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 			if (collide(&player_, &enemy_) && !enemy_.getIsDead()) {
 				item2_.setXPos(enemy_.getXPos());
 				item2_.setYPos(enemy_.getYPos());
-
-				cout << player_.getHitPercent() << endl;
+				
 				if (!player_.getIsDead() && player_.getHitPercent() >= 50 && !enemy_.getIsDead()) {
 					enemy_.setHealth(enemy_.getHealth() - player_.getAtk());
 					cout << "Enemy Health = " << enemy_.getHealth() << endl;
@@ -91,7 +90,7 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 		}
 
 		if (event->key.keysym.sym == SDLK_i) {
-			inventory_.printInventory(w);
+			inventory_.printInventory();
 		}
 
 		break;

@@ -44,8 +44,9 @@ public:
 	inline void setYPos(const int newValue) { sprite_.y(newValue); }
 
 	inline void setVisible(bool newValue) { sprite_.visible(newValue); }
-	//inline void notVisible() { return sprite_.visible(false); }
 	inline bool getVisible() { return sprite_.visible(); }
+
+	inline Texture* getTexture() { return &sprite_; }
 	
 	inline bool isFull() const { return (max_stack_size_ - stack_size_ == 0); }
 	inline bool isStackable() const { return (max_stack_size_ > 1); }

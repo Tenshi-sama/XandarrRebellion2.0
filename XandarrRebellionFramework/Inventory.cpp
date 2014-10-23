@@ -104,21 +104,6 @@ void Inventory::removeItem(string itemName) {
 	}
 }
 
-void Inventory::removeItem(vector<Item *>::iterator invIter) {
-	//for (invIter = inventory_space_.begin(); invIter != inventory_space_.end(); invIter++) {
-		current_weight_ -= (*invIter)->weight();
-
-		if ((*invIter)->isStackable() == true && (*invIter)->stackSize() > 1) {
-			(*invIter)->stackSize((*invIter)->stackSize() - 1);
-		} else {
-			delete *invIter;
-			*invIter = nullptr;
-		}
-
-		//break;
-	//}
-}
-
 void Inventory::printInventory() {
 	vector<Item *>::iterator invIter = inventory_space_.begin();
 

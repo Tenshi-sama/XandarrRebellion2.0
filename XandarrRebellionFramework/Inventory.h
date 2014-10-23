@@ -34,7 +34,6 @@ public:
 
 	void addItem(Item* newItem);
 	void removeItem(string);
-	void removeItem(vector<Item *>::iterator);
 	bool isFull() const;
 
 	inline unsigned short getCurrentWeight() const { return current_weight_; }

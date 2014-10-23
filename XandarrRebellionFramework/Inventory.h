@@ -8,6 +8,7 @@
 #include <vector>
 #include <iostream>
 #include <map>
+#include "Player.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ public:
 	~Inventory() {};
 
 	void Init(SDL_Renderer* r);
-	void HandleEvents(SDL_Event* event);
+	void HandleEvents(SDL_Event* event, Player* player_);
 	void Update(WindowManager* w);
 	void Render(WindowManager* w);
 
@@ -55,7 +56,7 @@ public:
 	inline void Inventory::setCapacity(const unsigned short newValue) { capacity_ = newValue; }
 	inline void Inventory::setCurrentWeight(const unsigned short newValue) { current_weight_ = newValue; }
 
-	void printInventory();
+	void printInventory(WindowManager* w);
 	void clearInventory();
 };
 

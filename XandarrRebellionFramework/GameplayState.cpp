@@ -22,6 +22,8 @@ void GameplayState::Init(WindowManager* w) {
 
 	item1_.name("Potion1");
 	item2_.name("Potion2");
+	item1_.heal(10);
+	item2_.heal(10);
 	item2_.setVisible(false);
 	
 	state_life_timer_.Start();
@@ -58,7 +60,7 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 				}
 			}
 
-			inventory_.HandleEvents(event);
+			inventory_.HandleEvents(event, &player_);
 		}
 		break;
 
@@ -83,7 +85,7 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 		}
 
 		if (event->key.keysym.sym == SDLK_i) {
-			inventory_.printInventory();
+			inventory_.printInventory(w);
 		}
 
 		break;

@@ -21,6 +21,8 @@ protected:
 	unsigned short weight_;
 	unsigned short stack_size_;
 	unsigned short max_stack_size_;
+	unsigned short heal_;
+	unsigned short damage_;
 	
 
 public:
@@ -53,6 +55,8 @@ public:
 	inline unsigned short stackSize() const { return stack_size_; }
 	inline const string& description() const { return description_; }
 	inline unsigned short maxStackSize() const { return max_stack_size_; }
+	inline unsigned short heal() const { return heal_; }
+	inline unsigned short damage() const { return damage_; }
 	
 	inline void name(const string& newValue) { name_ = newValue; }
 	inline void description(const string& newValue) { description_ = newValue; }
@@ -60,6 +64,8 @@ public:
 	inline void weight(const unsigned short newValue) { weight_ = newValue; }
 	inline void stackSize(const unsigned short newValue) { stack_size_ = newValue; }
 	inline void maxStackSize(const unsigned short newValue) { max_stack_size_ = newValue; }
+	inline void heal(const unsigned short newValue) { heal_ = newValue; }
+	inline void damage(const unsigned short newValue) { damage_ = newValue; }
 	
 	virtual void printInfo() {}
 	

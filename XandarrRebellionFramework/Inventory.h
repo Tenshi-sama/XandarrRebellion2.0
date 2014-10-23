@@ -36,7 +36,7 @@ private:
 	int textXPos, textYPos;
 
 public:
-	Inventory() : capacity_(100), current_weight_(0), SPRITE_LOCATION("_resources\\blank.png"), SPRITE_PIC1("_resources\\potion.png") {};
+	Inventory() : capacity_(100), current_weight_(0), SPRITE_LOCATION("_resources\\blank.png"), SPRITE_PIC1("_resources\\potion3.png") {};
 	~Inventory() {};
 
 	void Init(SDL_Renderer* r);

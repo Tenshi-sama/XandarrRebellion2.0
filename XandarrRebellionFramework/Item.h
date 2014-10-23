@@ -24,7 +24,7 @@ protected:
 	
 
 public:
-	Item() : SPRITE_LOCATION("_resources\\potion2.png") {}
+	Item() : SPRITE_LOCATION("_resources\\potion3.png") {}
 	~Item() { sprite_.~Texture(); }
 
 	void Init(SDL_Renderer* r);

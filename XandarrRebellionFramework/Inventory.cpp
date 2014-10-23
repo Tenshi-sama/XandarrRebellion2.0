@@ -42,6 +42,10 @@ void Inventory::Init(SDL_Renderer* r) {
 }
 
 void Inventory::HandleEvents(SDL_Event* event) {
+	//check if mouse is within the item in the enventory AND clicked (the event passed is mouse click)
+	if ((itemPic1_.visible()) && (event->motion.x >= itemPic1_.x() && event->motion.x <= (itemPic1_.x() + itemPic1_.width())) && (event->motion.y >= itemPic1_.y() && event->motion.y <= (itemPic1_.y() + itemPic1_.height()))) {
+		//when clicked, the player uses potion1
+	}
 
 }
 

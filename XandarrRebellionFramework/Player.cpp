@@ -10,8 +10,7 @@
 #define SPRITE_HEIGHT 32
 #define STEP 8
 
-Player::Player() : SPRITE_LOCATION("_resources\\Player_.png"),
-SPRITE_UP("_resources\\PlayerUp.png"),
+Player::Player() : SPRITE_LOCATION("_resources\\Player_.png"), SPRITE_UP("_resources\\PlayerUp.png"),
 SPRITE_DOWN("_resources\\PlayerDown.png"),
 SPRITE_LEFT("_resources\\PlayerLeft.png"),
 SPRITE_RIGHT("_resources\\PlayerRight.png"),
@@ -139,6 +138,8 @@ void Player::Render(WindowManager* w) {
 
 	// Draw the ptr_background_texture_image to the Scene2D object within RenderingEngine
 	sprite_.Draw(w->getRenderer());
+
+	
 }
 
 void Player::addXp(unsigned int newValue) {

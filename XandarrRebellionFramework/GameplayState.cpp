@@ -34,7 +34,7 @@ void GameplayState::Clean() {
 // Handles all gameplay events
 void GameplayState::HandleEvents(SDL_Event* event) {
 
-	player_.HandleEvents(event); //Player events
+	player_.HandleEvents(event); //Player movement events
 	//enemy_.HandleEvents(event);
 
 	switch (event->type) {
@@ -57,6 +57,8 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 					player_.addXp(enemy_.getXp());
 				}
 			}
+
+			inventory_.HandleEvents(event);
 		}
 		break;
 

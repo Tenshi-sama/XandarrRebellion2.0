@@ -23,6 +23,8 @@ void Inventory::HandleEvents(SDL_Event* event, Player* player_) {
 				(*invIter)->setVisible(false);
 
 				invIter = inventory_space_.erase(invIter);
+				printInventory(); //this is called twice to reset the inventory screen
+				printInventory();
 
 				break;//yes, yes i know, a break; well its either this or problems with the iterator :/
 			} else {
@@ -34,7 +36,8 @@ void Inventory::HandleEvents(SDL_Event* event, Player* player_) {
 }
 
 void Inventory::Update(WindowManager* w) {
-
+	printInventory(); //this is called twice to reset the inventory screen
+	printInventory();
 }
 
 void Inventory::Render(WindowManager* w) {
@@ -53,6 +56,7 @@ void Inventory::addItem(Item* newItem) {
 			if (newItem->name() == (*invIter)->name() && !(*invIter)->isFull()) {
 				(*invIter)->stackSize((*invIter)->stackSize() + 1);
 				uniqueItem = false;
+
 				break;
 			}
 		}
@@ -102,6 +106,9 @@ void Inventory::removeItem(string itemName) {
 
 		inventory_space_ = vector<Item *>(tmpInv);
 	}
+
+	printInventory(); //this is called twice to reset the inventory screen
+	printInventory();
 }
 
 void Inventory::printInventory() {

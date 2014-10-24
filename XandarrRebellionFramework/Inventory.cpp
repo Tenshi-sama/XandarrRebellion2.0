@@ -117,14 +117,6 @@ void Inventory::printInventory() {
 	}
 
 	for (; invIter != inventory_space_.end(); invIter++) {
-		/*
-		if ((*invIter)->isStackable() == false) {
-		(*invIter)->printInfo();
-		} else {
-		(*invIter)->printInfo();
-		}
-		*/
-
 		(*invIter)->setXPos(invItemX);
 		(*invIter)->setYPos(invItemY);
 

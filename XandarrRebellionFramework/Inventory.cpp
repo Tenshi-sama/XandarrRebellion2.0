@@ -5,7 +5,8 @@ void Inventory::Init(SDL_Renderer* r) {
 	invBox_.alpha(150);
 	invBox_.x(0);
 	invBox_.y(460);
-	invBox_.scaleX((const float)2.7);
+	invBox_.scaleX(800);
+	invBox_.scaleY(85);
 
 	invBox_.visible(false);
 }

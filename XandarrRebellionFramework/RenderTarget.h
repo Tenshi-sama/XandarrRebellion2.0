@@ -37,8 +37,8 @@ public:
 
 	// Re-Initialize object; safely destroys and recreates ptr_texture_
 	//		@param r Pointer to Renderer
-			//	@ param width Width of Window
-			//	@ param height Height of Window
+	//	@ param width Width of Window
+	//	@ param height Height of Window
 	void Reset(SDL_Renderer* r, int width, int height);
 
 	// Accessor Method for Button object's texture

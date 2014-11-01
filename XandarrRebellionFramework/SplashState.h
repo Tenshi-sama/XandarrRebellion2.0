@@ -15,7 +15,7 @@ class SplashState : public GameState {
 private:
 	// Pointer to splash screen texture
 	SDL_Texture* ptr_splash_screen_;
-	
+
 	const string SPRITE_LOCATION;
 	Texture sprite_;
 

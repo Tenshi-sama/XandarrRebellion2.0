@@ -5,8 +5,8 @@
 
 void Item::Init(SDL_Renderer* r) {
 	sprite_.LoadTexture(r, SPRITE_LOCATION);
-	sprite_.x(TILE_WIDTH*12);
-	sprite_.y(TILE_HEIGHT*3);
+	sprite_.x(TILE_WIDTH * 12);
+	sprite_.y(TILE_HEIGHT * 3);
 }
 
 void Item::HandleEvents(SDL_Event* event) {

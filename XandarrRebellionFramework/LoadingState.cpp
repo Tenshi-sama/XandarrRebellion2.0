@@ -24,19 +24,19 @@ void LoadingState::Clean() {
 // Handles events for the loading state
 void LoadingState::HandleEvents(SDL_Event* event) {
 	switch (event->type) {
-		case SDL_MOUSEBUTTONDOWN:
-			if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
-				cout << " | Current State: story1State" << endl;
-				GameStateManager::setCurrentState(GAMESTATE_TEAM);
-			}
-			break;
+	case SDL_MOUSEBUTTONDOWN:
+		if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
+			cout << " | Current State: story1State" << endl;
+			GameStateManager::setCurrentState(GAMESTATE_TEAM);
+		}
+		break;
 
-		case SDL_KEYDOWN:
-			// Change States when Escape is pressed
-			if (event->key.keysym.sym == SDLK_RETURN || event->key.keysym.sym == SDLK_KP_ENTER) {
-				GameStateManager::setCurrentState(GAMESTATE_TEAM);
-			}
-			break;
+	case SDL_KEYDOWN:
+		// Change States when Escape is pressed
+		if (event->key.keysym.sym == SDLK_RETURN || event->key.keysym.sym == SDLK_KP_ENTER) {
+			GameStateManager::setCurrentState(GAMESTATE_TEAM);
+		}
+		break;
 	}
 }
 
@@ -52,14 +52,14 @@ void LoadingState::Update(WindowManager* w) {
 		ttf_font* font = ttf_openfont( "_resources\\showg.ttf", 36 );
 		sdl_color textcolor = { 0, 0, 0 }; // rgb value for black
 
-		story_text_.createtexturefromtext(renderer, "a game by", font, textcolor); 
+		story_text_.createtexturefromtext(renderer, "a game by", font, textcolor);
 		*/
 		GameStateManager::setCurrentState(GAMESTATE_TEAM);
 
 		//RenderingEngine::DrawTexture(w->getRenderer(), ptr_credits_texture_, 0, 0);
 		/*
 		if ((state_life_timer_.getTicks() / 1000.f) >= 3) {
-			GameStateManager::setCurrentState(GAMESTATE_MAINMENU);
+		GameStateManager::setCurrentState(GAMESTATE_MAINMENU);
 		}*/
 	}
 }
@@ -67,20 +67,20 @@ void LoadingState::Update(WindowManager* w) {
 // All Draw operations for the loading state are performed here. Everything
 // draw within this method is drawn to the RenderingEngine's scene_property.
 void LoadingState::Render(WindowManager* w) {
-// Background Fill
+	// Background Fill
 
 	// Set the Renderer Colour to desired value for drawing the background.
 	SDL_SetRenderDrawColor(w->getRenderer(), 80, 20, 162, 255);
 
 	// Define the x and y as well as width and height properties of the
 	// background image.
-	SDL_Rect bgRect = {0, 0, w->getWidth(), w->getHeight()};
+	SDL_Rect bgRect = { 0, 0, w->getWidth(), w->getHeight() };
 
 	// Paint the area defined by bgRect to the Scene2D object within
 	// RenderingEngine
-	SDL_RenderFillRect(w->getRenderer(), & bgRect);
+	SDL_RenderFillRect(w->getRenderer(), &bgRect);
 
-// Draw the loading tex
+	// Draw the loading tex
 
 	// Draw the ptr_background_texture_image to the Scene2D object within RenderingEngine
 	RenderingEngine::DrawTexture(w->getRenderer(), ptr_background_texture_, 0, 0);

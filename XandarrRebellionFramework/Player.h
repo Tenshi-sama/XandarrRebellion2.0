@@ -5,8 +5,7 @@
 #include "Window.h"
 
 
-class Player 
-{
+class Player {
 private:
 	//======================//
 	//		Properties		//
@@ -49,7 +48,7 @@ private:
 	unsigned short constitution_;
 	unsigned short hitPercentbase_;
 	unsigned short hitPercent_;
-	
+
 	bool is_weapon_equipped_;
 
 	//WindowManager* w;

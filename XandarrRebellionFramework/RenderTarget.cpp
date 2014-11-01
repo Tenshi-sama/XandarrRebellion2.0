@@ -6,9 +6,9 @@
 // the renderer.
 RenderTarget::RenderTarget(SDL_Renderer* r, const int width, const int height) : ptr_texture_(nullptr) {
 	ptr_texture_ = SDL_CreateTexture(r,		// Renderer
-						SDL_PIXELFORMAT_ARGB8888,	// Pixel Format
-						SDL_TEXTUREACCESS_TARGET,	// Access Type TARGET allows texture to be used as rendering target |Note: Currently undocumented in SDL2 wiki
-						width, height);		// Width and Height of Window
+		SDL_PIXELFORMAT_ARGB8888,	// Pixel Format
+		SDL_TEXTUREACCESS_TARGET,	// Access Type TARGET allows texture to be used as rendering target |Note: Currently undocumented in SDL2 wiki
+		width, height);		// Width and Height of Window
 }
 
 RenderTarget::~RenderTarget() {

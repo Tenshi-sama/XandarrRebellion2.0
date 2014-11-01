@@ -49,9 +49,9 @@ void GameEngine::Clean() {
 
 void GameEngine::HandleEvents() {
 	switch (event_.type) {
-		case SDL_QUIT:
-			Clean();
-			break;
+	case SDL_QUIT:
+		Clean();
+		break;
 	}
 
 	rendering_engine_.getWindow().HandleEvents(&event_);
@@ -70,7 +70,7 @@ void GameEngine::DrawAvgFPS() {
 	timeText.str("");
 	timeText << "Average FPS |" << avgFPS << "| ";
 
-	SDL_Color textColor = {0, 255, 0, 0};
+	SDL_Color textColor = { 0, 255, 0, 0 };
 
 	//SDL_Texture* fpsTex;
 

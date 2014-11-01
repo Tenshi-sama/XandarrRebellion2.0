@@ -51,28 +51,28 @@ void GameStateManager::setCurrentState(int gameStateID) {
 	}
 
 	switch (gameStateID) {
-		case GAMESTATE_SPLASH:
-			ptr_current_state_ = new SplashState();
-			break;
+	case GAMESTATE_SPLASH:
+		ptr_current_state_ = new SplashState();
+		break;
 
-		case GAMESTATE_LOADING:
-			ptr_current_state_ = new LoadingState();
-			break;
+	case GAMESTATE_LOADING:
+		ptr_current_state_ = new LoadingState();
+		break;
 
-		case GAMESTATE_MAINMENU:
-			ptr_current_state_ = new MainMenuState();
-			break;
+	case GAMESTATE_MAINMENU:
+		ptr_current_state_ = new MainMenuState();
+		break;
 
-		case GAMESTATE_GAMEPLAY:
-			ptr_current_state_ = new GameplayState();
-			break;
+	case GAMESTATE_GAMEPLAY:
+		ptr_current_state_ = new GameplayState();
+		break;
 
-		case GAMESTATE_CREDITS:
-			ptr_current_state_ = new CreditsState();
-			break;
+	case GAMESTATE_CREDITS:
+		ptr_current_state_ = new CreditsState();
+		break;
 
-		case GAMESTATE_TEAM:
-			ptr_current_state_ = new TeamCredits();
-			break;
+	case GAMESTATE_TEAM:
+		ptr_current_state_ = new TeamCredits();
+		break;
 	}
 }

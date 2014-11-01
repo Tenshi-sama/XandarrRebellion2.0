@@ -16,7 +16,7 @@ protected:
 
 public:
 	HitBox() { cout << "I'm initialized" << endl; }
-	~HitBox(){};
+	~HitBox() {};
 
 	inline int getXPos() { return x_; }
 	inline int getYPos() { return y_; }

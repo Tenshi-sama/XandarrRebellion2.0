@@ -10,8 +10,7 @@
 
 using std::vector;
 
-class Level
-{
+class Level {
 private:
 	//======================//
 	//		Properties		//
@@ -25,7 +24,7 @@ private:
 
 public:
 	Level() : LEVEL_LOCATION("_resources/Maps/map.png"), BOX_LOCATION("_resources/Player_.png") {}
-	~Level(){}
+	~Level() {}
 
 	void Init(SDL_Renderer* r);
 	void HandleEvents(SDL_Event* event);

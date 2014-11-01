@@ -16,8 +16,7 @@
 
 
 // Fourth and final GameState of the applicatoin
-class GameplayState : public GameState 
-{
+class GameplayState : public GameState {
 private:
 	//======================//
 	//		Properties		//
@@ -35,7 +34,7 @@ private:
 	XP xp_;
 	PrintLevel printLevel_;
 	Inventory inventory_;
-	
+
 	Timer state_life_timer_;
 	unsigned int tmpTime;
 
@@ -56,8 +55,8 @@ public:
 	virtual void Clean();
 
 	// Gameplay state event handler method
-	virtual void HandleEvents(SDL_Event* event); 
-	virtual void HandleEvents(WindowManager* w){}
+	virtual void HandleEvents(SDL_Event* event);
+	virtual void HandleEvents(WindowManager* w) {}
 
 	// Gameplay state logic update method
 	virtual void Update(WindowManager* w);
@@ -70,5 +69,5 @@ public:
 	bool collide(Player* a, Item* b);
 	bool collide(Player* a, HitBox* b);
 };
- 
+
 #endif

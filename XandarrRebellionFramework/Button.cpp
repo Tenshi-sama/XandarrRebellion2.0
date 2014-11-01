@@ -5,19 +5,19 @@
 // values. On failure of trying to load the Button font an error message
 // is displayed which invokes SDL_GetError() for optimum error reporting.
 Button::Button(SDL_Renderer* r, const string& label, SDL_Color& textColor, const Uint8 fontSize) : ptr_font_(nullptr),  // Pointer to the Button object's font
-	current_state_(NORMAL) {	// Tracks the current ButtonState
-		// Try and load font first, in event of failure...
-		ptr_font_ = TTF_OpenFont("_resources/TPBAFK-Regular.otf", fontSize);
+current_state_(NORMAL) {	// Tracks the current ButtonState
+	// Try and load font first, in event of failure...
+	ptr_font_ = TTF_OpenFont("_resources/TPBAFK-Regular.otf", fontSize);
 
-		if (ptr_font_ == nullptr) {
-			cout << "Error @ TTF INIT" << SDL_GetError() << endl;
-		}
+	if (ptr_font_ == nullptr) {
+		cout << "Error @ TTF INIT" << SDL_GetError() << endl;
+	}
 
-		// Generate texture from string
-		label_texbb_.tex = RenderingEngine::CreateTextureFromString(r, label, textColor, ptr_font_);
+	// Generate texture from string
+	label_texbb_.tex = RenderingEngine::CreateTextureFromString(r, label, textColor, ptr_font_);
 
-		// Fill the values of label_texbb's bounding box
-		GenerateBoundingBox(label_texbb_);
+	// Fill the values of label_texbb's bounding box
+	GenerateBoundingBox(label_texbb_);
 }
 
 Button::~Button() {
@@ -33,33 +33,33 @@ void Button::HandleEvents(SDL_Event* event) {
 	}
 
 	switch (event->type) {
-		case SDL_MOUSEMOTION:
-			// onHover
-			if (isInsideRect(label_texbb_.dimensions, event->motion.x, event->motion.y)) {
-				current_state_ = HOVERING;
-			}
+	case SDL_MOUSEMOTION:
+		// onHover
+		if (isInsideRect(label_texbb_.dimensions, event->motion.x, event->motion.y)) {
+			current_state_ = HOVERING;
+		}
 
-			break;
+		break;
 
-		case SDL_MOUSEBUTTONDOWN:
-			// onClick
-			if (isInsideRect(label_texbb_.dimensions, event->button.x, event->button.y)) {
-				current_state_ = CLICKED;
+	case SDL_MOUSEBUTTONDOWN:
+		// onClick
+		if (isInsideRect(label_texbb_.dimensions, event->button.x, event->button.y)) {
+			current_state_ = CLICKED;
 #ifndef DEBUG
-				cout << "Button Clicked" << endl;
+			cout << "Button Clicked" << endl;
 #endif
-			}
+		}
 
-			break;
+		break;
 
-		case SDL_MOUSEBUTTONUP:
-			// onRelease
-			if (isInsideRect(label_texbb_.dimensions, event->button.x, event->button.y)) {
-				current_state_ = RELEASED;
+	case SDL_MOUSEBUTTONUP:
+		// onRelease
+		if (isInsideRect(label_texbb_.dimensions, event->button.x, event->button.y)) {
+			current_state_ = RELEASED;
 #ifndef DEBUG
-				cout << "Button Released" << endl;
+			cout << "Button Released" << endl;
 #endif
-			}
+		}
 	}
 }
 

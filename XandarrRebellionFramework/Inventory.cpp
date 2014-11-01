@@ -31,7 +31,7 @@ void Inventory::HandleEvents(SDL_Event* event, Player* player_) {
 			} else {
 				cout << "You're already at full health!\n";
 			}
-			
+
 		}
 	}
 }

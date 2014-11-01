@@ -86,7 +86,7 @@ void RenderingEngine::DrawTexture(SDL_Renderer* r, SDL_Texture *tex, int x, int 
 	}
 
 	// Declare and instantiate pointer to SDL_Rect
-	SDL_Rect dst = {x, y, w, h};
+	SDL_Rect dst = { x, y, w, h };
 
 	// Draw texture to renderer
 	SDL_RenderCopy(r, tex, NULL, &dst);

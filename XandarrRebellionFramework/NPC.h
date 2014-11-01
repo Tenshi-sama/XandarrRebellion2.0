@@ -6,8 +6,7 @@
 #include "Window.h"
 
 
-class NPC 
-{
+class NPC {
 private:
 	//======================//
 	//		Properties		//
@@ -18,13 +17,13 @@ private:
 	Texture text2_;
 	Texture text3_;
 	Texture text4_;
-	
+
 	Timer state_life_timer_;
 
 public:
 	// Ctor and Dtor
-	NPC() : SPRITE_LOCATION("_resources/npc.png"){}
-	~NPC(){};
+	NPC() : SPRITE_LOCATION("_resources/npc.png") {}
+	~NPC() {};
 
 	//======================//
 	//		Behaviours		//

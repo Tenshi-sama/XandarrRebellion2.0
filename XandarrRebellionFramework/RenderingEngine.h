@@ -56,7 +56,7 @@ public:
 	// Initializes the SDL system, SDL_img & SDL_ttf extension library
 	// Constructs the WindowManager object and the RenderTarget.
 	bool Init();
-	
+
 	// Unloads SDL SubSystems, Frees Associated Memory
 	void Clean();
 

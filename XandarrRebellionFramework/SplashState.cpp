@@ -19,18 +19,18 @@ void SplashState::Clean() {
 // Handles events for the splash state
 void SplashState::HandleEvents(SDL_Event* event) {
 	switch (event->type) {
-		case SDL_MOUSEBUTTONDOWN:
-			if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
-				cout << " | Current State: SplashState" << endl;
-			}
-			break;
+	case SDL_MOUSEBUTTONDOWN:
+		if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
+			cout << " | Current State: SplashState" << endl;
+		}
+		break;
 
-		case SDL_KEYDOWN:
-			// Change States when Escape is pressed
-			if (event->key.keysym.sym == SDLK_RETURN || event->key.keysym.sym == SDLK_KP_ENTER) {
-				GameStateManager::setCurrentState(GAMESTATE_LOADING);
-			}
-			break;
+	case SDL_KEYDOWN:
+		// Change States when Escape is pressed
+		if (event->key.keysym.sym == SDLK_RETURN || event->key.keysym.sym == SDLK_KP_ENTER) {
+			GameStateManager::setCurrentState(GAMESTATE_LOADING);
+		}
+		break;
 	}
 }
 
@@ -48,7 +48,7 @@ void SplashState::Render(WindowManager* w) {
 
 	// Define the x and y as well as width and height properties of the
 	// background image.
-	SDL_Rect bgRect = {0, 0, w->getWidth(), w->getHeight()};
+	SDL_Rect bgRect = { 0, 0, w->getWidth(), w->getHeight() };
 
 	// Paint the area defined by bfRect to the Scene2D object within
 	// RenderingEngine

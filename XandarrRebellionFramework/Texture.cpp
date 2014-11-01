@@ -103,7 +103,7 @@ bool Texture::CreateTextureFromText(SDL_Renderer* r, const string& textValue, TT
 	} else {
 		final_texture = SDL_CreateTextureFromSurface(r, textSurface);
 
-		if(final_texture == nullptr) {
+		if (final_texture == nullptr) {
 			return false;
 		}
 

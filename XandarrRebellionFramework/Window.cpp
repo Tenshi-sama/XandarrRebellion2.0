@@ -30,12 +30,12 @@ WindowManager::~WindowManager() {
 bool WindowManager::Init() {
 	// Creates an application window for SDL.
 	ptr_app_window_ = SDL_CreateWindow(
-			"XANDARR REBELLION",		// Window Title (UTF-8 encoding)
-			25,		// Initial X position of window
-			40,		// Initial Y position of window
-			width_,		// Window's width, in pixels
-			height_,	// Window's height, in pixels
-			SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);	// Flags
+		"XANDARR REBELLION",		// Window Title (UTF-8 encoding)
+		25,		// Initial X position of window
+		40,		// Initial Y position of window
+		width_,		// Window's width, in pixels
+		height_,	// Window's height, in pixels
+		SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);	// Flags
 
 	// nullptr check
 	if (!ptr_app_window_) {
@@ -68,36 +68,36 @@ void WindowManager::HandleEvents(SDL_Event* event) {
 	if (event->type == SDL_WINDOWEVENT) {
 		switch (event->window.event) {
 			// Get new dimensions and repoint on window size change
-			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				width_ = event->window.data1;
-				height_ = event->window.data2;
-				SDL_RenderPresent(ptr_renderer_);
-				break;
+		case SDL_WINDOWEVENT_SIZE_CHANGED:
+			width_ = event->window.data1;
+			height_ = event->window.data2;
+			SDL_RenderPresent(ptr_renderer_);
+			break;
 
 			// Repaint on exposure
-			case SDL_WINDOWEVENT_EXPOSED:
-				SDL_RenderPresent(ptr_renderer_);
-				break;
+		case SDL_WINDOWEVENT_EXPOSED:
+			SDL_RenderPresent(ptr_renderer_);
+			break;
 
 			// Mouse entered window
-			case SDL_WINDOWEVENT_ENTER:
-				is_mouse_focused_ = true;
-				break;
+		case SDL_WINDOWEVENT_ENTER:
+			is_mouse_focused_ = true;
+			break;
 
 			// Mouse left window
-			case SDL_WINDOWEVENT_LEAVE:
-				is_mouse_focused_ = false;
-				break;
+		case SDL_WINDOWEVENT_LEAVE:
+			is_mouse_focused_ = false;
+			break;
 
 			// Window has keyboard focus
-			case SDL_WINDOWEVENT_FOCUS_GAINED:
-				is_keyboard_focused_ = true;
-				break;
+		case SDL_WINDOWEVENT_FOCUS_GAINED:
+			is_keyboard_focused_ = true;
+			break;
 
 			// Window lost keyboard focus
-			case SDL_WINDOWEVENT_FOCUS_LOST:
-				is_keyboard_focused_ = false;
-				break; 
+		case SDL_WINDOWEVENT_FOCUS_LOST:
+			is_keyboard_focused_ = false;
+			break;
 		}
 	}
 

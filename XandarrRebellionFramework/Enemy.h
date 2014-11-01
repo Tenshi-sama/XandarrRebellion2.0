@@ -5,15 +5,14 @@
 #include "Window.h"
 
 
-class Enemy 
-{
+class Enemy {
 private:
 	//======================//
 	//		Properties		//
 	//======================//
 	const string SPRITE_LOCATION;
 	Texture sprite_;
-	
+
 	unsigned int xp_;
 	unsigned int atk_;
 	unsigned int def_;
@@ -27,7 +26,7 @@ private:
 public:
 	// Ctor and Dtor
 	Enemy();
-	~Enemy(){};
+	~Enemy() {};
 
 
 

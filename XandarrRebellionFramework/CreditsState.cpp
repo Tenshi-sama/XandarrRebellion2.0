@@ -9,7 +9,7 @@ void CreditsState::Init(WindowManager* w) {
 	string str = "Back";
 	string str2 = "Exit";
 
-	SDL_Color button_text_color = {255, 0, 0, 255};
+	SDL_Color button_text_color = { 255, 0, 0, 255 };
 
 	// Stores the x-axis value of tex's centre point
 	int center_x_of_texture;
@@ -19,11 +19,11 @@ void CreditsState::Init(WindowManager* w) {
 	// in lost data (through the implicit conversion of double to int)
 	int center_x_of_window = (int)floor(w->getWidth() * 0.5);	//*
 	int window_height_one_eighth = (int)floor(w->getHeight() * 0.125);	//*
-	
+
 	main_menu_btn_ = new Button(w->getRenderer(), str, button_text_color);
 	center_x_of_texture = (int)floor(main_menu_btn_->getBoundingBox().w * 0.5); //*
 	main_menu_btn_->setPosition(0 + center_x_of_texture, window_height_one_eighth * 6);
-	
+
 	quit_game_btn_ = new Button(w->getRenderer(), str2, button_text_color);
 	center_x_of_texture = (int)floor(quit_game_btn_->getBoundingBox().w * 0.5); //*
 	quit_game_btn_->setPosition(center_x_of_window - center_x_of_texture, window_height_one_eighth * 6);
@@ -47,18 +47,18 @@ void CreditsState::HandleEvents(SDL_Event* event) {
 	quit_game_btn_->HandleEvents(event);
 
 	switch (event->type) {
-		case SDL_MOUSEBUTTONDOWN:
-			if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
-				cout << "|--> Mouse Click(" << event->button.x << ", " << event->button.y << ") | Current State: Main Menu State" << endl;
-			}
-			break;
+	case SDL_MOUSEBUTTONDOWN:
+		if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
+			cout << "|--> Mouse Click(" << event->button.x << ", " << event->button.y << ") | Current State: Main Menu State" << endl;
+		}
+		break;
 
-		case SDL_KEYDOWN:
-			// Change States when Escape is pressed
-			if (event->key.keysym.sym == SDLK_ESCAPE) {
-				GameStateManager::setCurrentState(GAMESTATE_MAINMENU);
-			}
-			break;
+	case SDL_KEYDOWN:
+		// Change States when Escape is pressed
+		if (event->key.keysym.sym == SDLK_ESCAPE) {
+			GameStateManager::setCurrentState(GAMESTATE_MAINMENU);
+		}
+		break;
 	}
 }
 
@@ -78,14 +78,14 @@ void CreditsState::Update(WindowManager* w) {
 // All Draw Operations for the main menu state are performed here. Everything
 // drawn within this method is drawn to the RenderingEngine's scene_property.
 void CreditsState::Render(WindowManager* w) {
-// Background Fill
+	// Background Fill
 
 	// Set the Renderer Color to desired value for drawing the background.
 	SDL_SetRenderDrawColor(w->getRenderer(), 80, 20, 163, 255);
 
 	// Define the x and even y as well as width and height properties of the
 	// background image.
-	SDL_Rect bgRect = {0, 0, w->getWidth(), w->getHeight()};
+	SDL_Rect bgRect = { 0, 0, w->getWidth(), w->getHeight() };
 
 	// Paint the area defined by bgRect to the Scene2D object within
 	// RenderingEngine

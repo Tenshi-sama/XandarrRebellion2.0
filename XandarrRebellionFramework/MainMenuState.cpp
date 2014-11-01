@@ -8,7 +8,7 @@ void MainMenuState::Init(WindowManager* w) {
 	string str2 = "Credits";
 	string str3 = "Exit";
 
-	SDL_Color button_text_color = {255, 0, 0, 255};
+	SDL_Color button_text_color = { 255, 0, 0, 255 };
 
 	// Stores the x-axis value of tex's centre point
 	int center_x_of_texture;
@@ -52,11 +52,11 @@ void MainMenuState::HandleEvents(SDL_Event* event) {
 	quit_game_btn_->HandleEvents(event);
 
 	switch (event->type) {
-		case SDL_MOUSEBUTTONDOWN:
-			if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
-				cout << "|--> Mouse Click(" << event->button.x << ", " << event->button.y << ") | Current State: Main Menu State" << endl;
-			}
-			break;
+	case SDL_MOUSEBUTTONDOWN:
+		if (event->button.button == SDL_BUTTON_LEFT || event->button.button == SDL_BUTTON_RIGHT) {
+			cout << "|--> Mouse Click(" << event->button.x << ", " << event->button.y << ") | Current State: Main Menu State" << endl;
+		}
+		break;
 	}
 }
 
@@ -81,14 +81,14 @@ void MainMenuState::Update(WindowManager* w) {
 // All Draw Operations for the main menu state are performed here. Everything
 // drawn within this method is drawn to the RenderingEngine's scene_property.
 void MainMenuState::Render(WindowManager* w) {
-// Background Fill
+	// Background Fill
 
 	// Set the Renderer Color to desired value for drawing the background.
 	SDL_SetRenderDrawColor(w->getRenderer(), 80, 20, 163, 255);
 
 	// Define the x and even y as well as width and height properties of the
 	// background image.
-	SDL_Rect bgRect = {0, 0, w->getWidth(), w->getHeight()};
+	SDL_Rect bgRect = { 0, 0, w->getWidth(), w->getHeight() };
 
 	// Paint the area defined by bgRect to the Scene2D object within
 	// RenderingEngine

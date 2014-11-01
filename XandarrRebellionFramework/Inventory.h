@@ -20,7 +20,7 @@ private:
 	const string SPRITE_LOCATION;
 
 	Texture invBox_;
-	
+
 	int textXPos, textYPos;
 
 public:

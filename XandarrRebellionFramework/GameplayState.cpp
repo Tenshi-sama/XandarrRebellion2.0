@@ -28,7 +28,7 @@ void GameplayState::Init(WindowManager* w) {
 
 	item2_.setXPos(enemy_.getXPos());
 	item2_.setYPos(enemy_.getYPos());
-	
+
 	state_life_timer_.Start();
 }
 
@@ -50,7 +50,7 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 			if (collide(&player_, &enemy_) && !enemy_.getIsDead()) {
 				item2_.setXPos(enemy_.getXPos());
 				item2_.setYPos(enemy_.getYPos());
-				
+
 				if (!player_.getIsDead() && player_.getHitPercent() >= 50 && !enemy_.getIsDead()) {
 					enemy_.setHealth(enemy_.getHealth() - player_.getAtk());
 					cout << "Enemy Health = " << enemy_.getHealth() << endl;
@@ -72,12 +72,12 @@ void GameplayState::HandleEvents(SDL_Event* event) {
 	case SDL_KEYDOWN:
 		/*
 		if (event->key.keysym.sym == SDLK_f) {
-			cout << "|--> Toggle Fullscreen" << endl;
-			if (w->isFullscreen()) {
-				w->isFullscreen(false);
-			} else {
-				w->isFullscreen(true);
-			}
+		cout << "|--> Toggle Fullscreen" << endl;
+		if (w->isFullscreen()) {
+		w->isFullscreen(false);
+		} else {
+		w->isFullscreen(true);
+		}
 		}
 		*/
 
@@ -109,12 +109,12 @@ void GameplayState::Update(WindowManager* w) {
 		/*
 		switch (w->getEvent()->type) {
 		case SDL_MOUSEBUTTONDOWN:
-			if (w->getEvent()->button.button == SDL_BUTTON_LEFT) {
-				while (player_.getBaseHealth() > 0 && enemy_.getHealth() > 0){
-					enemy_.setHealth(enemy_.getHealth() - player_.getBaseAttack());
-					cout << "Enemy Health = " << enemy_.getHealth() << endl;
-				}
-			}
+		if (w->getEvent()->button.button == SDL_BUTTON_LEFT) {
+		while (player_.getBaseHealth() > 0 && enemy_.getHealth() > 0){
+		enemy_.setHealth(enemy_.getHealth() - player_.getBaseAttack());
+		cout << "Enemy Health = " << enemy_.getHealth() << endl;
+		}
+		}
 		}
 		*/
 		//enemy_.Moving(false);
@@ -182,7 +182,7 @@ void GameplayState::Update(WindowManager* w) {
 		topB = level_.getHitbox().getYPos();
 		bottomB = level_.getHitbox().getYPos() + level_.getHitbox().getHeight();
 
-		
+
 		if ((topA == bottomB || (topA < bottomB && topA >topB)) && (leftA < rightB && leftA > leftB)) {
 			// checks if the player has collided with the bottom of the hitbox
 			// and stops the player from moving up

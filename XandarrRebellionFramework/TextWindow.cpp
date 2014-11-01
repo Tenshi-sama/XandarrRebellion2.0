@@ -1,6 +1,6 @@
 #include "TextWindow.h"
 
-TTF_Font* font = TTF_OpenFont( "_resources\\SHOWG.ttf", 36 );
+TTF_Font* font = TTF_OpenFont("_resources\\SHOWG.ttf", 36);
 SDL_Color textColor = { 0, 0, 0 }; // RGB value for Black
 //SDL_Renderer* r = w->getRenderer();
 

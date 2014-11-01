@@ -7,8 +7,7 @@
 #include "Player.h"
 #include <sstream>
 
-class Healthbarout
-{
+class Healthbarout {
 private:
 	//======================//
 	//		Properties		//
@@ -16,13 +15,13 @@ private:
 	const string SPRITE_LOCATION;
 	Texture sprite_;
 
-	
+
 
 public:
 	// Ctor and Dtor
 	//HUD() : SPRITE_LOCATION("_resources\\Health_Outer.png") {};
 	Healthbarout() : SPRITE_LOCATION("_resources\\_HUD\\Health_Outer.png") {};
-	~Healthbarout(){};
+	~Healthbarout() {};
 
 	//======================//
 	//		Behaviours		//
@@ -33,8 +32,7 @@ public:
 	void Render(WindowManager* w);
 };
 
-class Healthbarin
-{
+class Healthbarin {
 private:
 	//======================//
 	//		Properties		//
@@ -49,7 +47,7 @@ public:
 	// Ctor and Dtor
 	//HUD() : SPRITE_LOCATION("_resources\\Health_Outer.png") {};
 	Healthbarin() : SPRITE_LOCATION("_resources\\_HUD\\Health_Inner.png") {};
-	~Healthbarin(){};
+	~Healthbarin() {};
 
 	//======================//
 	//		Behaviours		//
@@ -72,7 +70,7 @@ private:
 
 public:
 	XP() {};
-	~XP(){};
+	~XP() {};
 
 	//======================//
 	//		Behaviours		//

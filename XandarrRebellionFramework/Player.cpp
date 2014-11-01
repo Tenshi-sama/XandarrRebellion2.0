@@ -139,7 +139,7 @@ void Player::Render(WindowManager* w) {
 	// Draw the ptr_background_texture_image to the Scene2D object within RenderingEngine
 	sprite_.Draw(w->getRenderer());
 
-	
+
 }
 
 void Player::addXp(unsigned int newValue) {

@@ -10,13 +10,12 @@
 
 using namespace std;
 
-class TextWindow
-{
+class TextWindow {
 protected:
 	Texture textBox_;
 	Texture text_;
 	const string SPRITE_LOCATION;
-	
+
 	//std::stringstream ss;
 
 public:
@@ -26,7 +25,7 @@ public:
 	void Init(SDL_Renderer* r);
 	void HandleEvents(SDL_Event* event);
 	void Update(WindowManager* w);
-	void Render(WindowManager* w);	
+	void Render(WindowManager* w);
 };
 
 #endif
